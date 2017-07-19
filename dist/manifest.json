@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "Lynxit",
+  "version": "0.1",
+  "description": "The official Lynxit browser extension. See real-time alerts.",
+  "permissions": [
+	"notifications",
+	"background",
+	"https://*.lynxithealth.com/"
+  ],
+  "options_page": "options/options.html",
+  "options_ui": {
+	"page": "options/options.html"
+  },
+  "background": {
+	"scripts": [
+	  "external/jquery.js"
+	  //"background.js"
+	]
+  },
+  "browser_action": {
+	"default_title": "Lynxit",
+	"default_popup": "popup/popup.html"
+  },
+  "content_scripts": [{
+	"js": [
+	  "external/jquery.js",
+	  "content.js"
+	],
+	"css": [
+	  "external/hint.css",
+	  "content.css"
+	],
+	"run_at": "document_end",
+	"matches": [
+		"*://*.lynxithealth.com/*"
+	],
+	"all_frames": true
+  }],
+  "web_accessible_resources": [
+	"external/colors.css",
+	"icons/**/*.png",
+	"content.html"
+  ]
+}
