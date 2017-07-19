@@ -19,6 +19,6 @@ const showNotification = function() {
 
 if(window.Notification) {
 	setInterval(function () {
-		//
+		showNotification();
 	}, INTERVAL);
 }
